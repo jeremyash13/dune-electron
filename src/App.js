@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "@openfonts/jost_latin";
 import PlayBar from "./components/PlayBar";
 import Library from "./components/Library";
 import StoreContext from "./containers/StoreContext";
 import ReactHowler from "react-howler";
 import { useLocalStore, useObserver } from "mobx-react";
+
+const { ipcRenderer } = require('electron')
 
 const StoreProvider = ({ children }) => {
   const store = useLocalStore(() => ({
@@ -31,6 +33,9 @@ const StoreProvider = ({ children }) => {
 };
 
 export default function App() {
+  useEffect(() => {
+    console.log(ipcRenderer.send('init-library', 'ping'))
+  }, [])
   return (
     <StoreProvider>
       <div className="font-jost text-white bg-dark-blue h-screen flex flex-col p-8">
