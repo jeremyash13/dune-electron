@@ -5,8 +5,9 @@ import Library from "./components/Library";
 import StoreContext from "./containers/StoreContext";
 import ReactHowler from "react-howler";
 import { useLocalStore, useObserver } from "mobx-react";
-
-const { ipcRenderer } = require('electron')
+import Sound from 'react-sound';
+import mp3url from './test-music/Overnight.mp3'
+// const { ipcRenderer } = require('electron')
 
 const StoreProvider = ({ children }) => {
   const store = useLocalStore(() => ({
@@ -34,14 +35,20 @@ const StoreProvider = ({ children }) => {
 
 export default function App() {
   useEffect(() => {
-    console.log(ipcRenderer.send('init-library', 'ping'))
+    // console.log(ipcRenderer.send('init-library', 'ping'))
   }, [])
+
+  const soundProps = {
+    url: mp3url,
+    playStatus: Sound.status.PLAYING
+  }
+
   return (
     <StoreProvider>
       <div className="font-jost text-white bg-dark-blue h-screen flex flex-col p-8">
         <Library />
         <PlayBar />
-        <ReactHowler src="../public/test-music/Overnight.mp3" playing={true} />
+        <Sound {...soundProps} />
       </div>
     </StoreProvider>
   );
