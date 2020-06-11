@@ -1,4 +1,5 @@
 const electron = require('electron');
+const fs = require('fs')
 // Module to control application life.
 const app = electron.app;
 // Module to create native browser window.
@@ -11,15 +12,31 @@ const url = require('url');
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
+function populateLibrary() {
+    const dirName = "C:/Music"
+    fs.readdir(dirName, (files) => {
+        console.log(files)
+        files.forEach((file) => {
+            const src = dirName + '/' + file
+            const output = '../library/' + file
+            fs.copyFile(src, output, (err) => {
+                if (err) throw err
+            })
+        })
+    })
+}
+
 function createWindow() {
     // Create the browser window.
-    mainWindow = new BrowserWindow({width: 800, height: 600});
+    mainWindow = new BrowserWindow({width: 800, height: 600,});
 
     // and load the index.html of the app.
     mainWindow.loadURL('http://localhost:3000');
 
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
+
+    populateLibrary()
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function () {
@@ -28,6 +45,7 @@ function createWindow() {
         // when you should delete the corresponding element.
         mainWindow = null
     })
+
 }
 
 // This method will be called when Electron has finished

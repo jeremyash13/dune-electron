@@ -3,21 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@openfonts/jost_latin": "0.0.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "howler": "^2.2.0",
+    "jsmediatags": "^3.9.3",
+    "mobx": "^5.15.4",
+    "mobx-react": "^6.2.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-howler": "^3.7.4",
     "react-scripts": "3.4.1"
   },
   "homepage": "./",
   "main": "src/electron-starter.js",
   "scripts": {
-    "start": "react-scripts start",
+    "watch:css": "postcss src/tailwind.css -o src/App.css -w",
+    "react-start": "react-scripts start",
     "electron": "electron .",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:css": "postcss src/tailwind.css -o src/App.css"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,6 +46,7 @@
     "autoprefixer": "^9.8.0",
     "electron": "^9.0.3",
     "postcss": "^7.0.32",
+    "postcss-cli": "^7.1.1",
     "tailwindcss": "^1.4.6"
   }
 }
