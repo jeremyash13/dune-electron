@@ -14,7 +14,7 @@ export default function App() {
   }, []);
 
   const soundProps = {
-    url: `data:audio/mpeg;base64,${store.currentSong}`,
+    url: "C:/Music/Overnight.mp3",
     playStatus: Sound.status.PLAYING,
   };
 
