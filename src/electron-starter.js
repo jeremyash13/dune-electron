@@ -11,8 +11,9 @@ const path = require("path");
 const url = require("url");
 const dataurl = require("dataurl");
 const { resolve } = require("path");
-
 const {Howl, Howler} = require('howler');
+
+const soundWindow = require('./main-process/soundWindow')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -96,9 +97,9 @@ function createWindow() {
 
 app.on("ready", async () => {
   // Install React Dev Tools
-  await session.defaultSession.loadExtension(
-    "C:/Users/jerem/Desktop/react-dev-tools"
-  );
+  // await session.defaultSession.loadExtension(
+  //   "C:/Users/jerem/Desktop/react-dev-tools"
+  // );
   createWindow();
 });
 
@@ -126,6 +127,7 @@ ipcMain.on("playSong", async (event, arg) => {
   // const dataUrl = await convertSongToDataUrl(json.src);
   // console.log(dataUrl)
   // event.returnValue = await convertSongToDataUrl(json.src);
+  soundWindow.createWindow()
   event.returnValue = 'recieved';
 });
 ipcMain.on("initLibrary", async (event, arg) => {
