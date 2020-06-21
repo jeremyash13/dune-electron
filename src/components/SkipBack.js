@@ -1,8 +1,15 @@
 import React from "react";
+import StoreContext from "../containers/StoreContext";
 
-export default function SkipBack({className}) {
+export default function SkipBack({ className }) {
+  const store = React.useContext(StoreContext);
   return (
-    <div className={`${className} w-6 h-6 transform rotate-180 cursor-pointer`}>
+    <div
+      className={`${className} w-6 h-6 transform rotate-180 cursor-pointer text-gray-700 hover:text-white transition-colors duration-300 ease-in-out`}
+      onClick={() => {
+        store.prevSong()
+      }}
+    >
       <svg
         className="h-full w-full mx-auto"
         xmlns="http://www.w3.org/2000/svg"

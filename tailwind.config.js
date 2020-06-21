@@ -3,16 +3,27 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'jost': 'Jost'
+        jost: "Jost",
       },
       inset: {
-        '1/2': '50%'
+        "1/2": "50%",
+        "6": "2rem",
       },
       colors: {
-        'dark-blue': '#111727'
-      }
+        "dark-blue": "#111727",
+      },
+      width: {
+        "72": "18rem",
+        "80": "20rem",
+      },
+      height: {
+        "1/2": "50%",
+      },
+      translate: {
+        "1": ".15rem",
+      },
     },
   },
   variants: {},
   plugins: [],
-}
+};

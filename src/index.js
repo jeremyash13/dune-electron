@@ -8,8 +8,44 @@ import StoreContext from "./containers/StoreContext";
 
 const StoreProvider = ({ children }) => {
   const store = useLocalStore(() => ({
-    isPlaying: false,
-    currentSong: '',
+    setQueueIndex: (newState) => {
+      if (newState !== -1 && newState < store.queue.length) {
+        store.queueIndex = newState;
+      }
+    },
+    setQueue: (newState) => {
+      store.queue = [...newState];
+    },
+    setPosition: (newState) => {
+      store.position = newState;
+    },
+    setSongLibrary: (newState) => {
+      store.songLibrary = [...newState];
+    },
+    setCurrentSong: (newState) => {
+      store.currentSong = newState;
+    },
+    prevSong: () => {
+      if (store.queueIndex !== 0) {
+        store.queueIndex--;
+        store.setPosition(0)
+      }
+    },
+    nextSong: () => {
+      if (store.queueIndex < store.queue.length - 1) {
+        store.queueIndex++;
+        store.setPosition(0)
+      }
+    },
+    play: () => {
+      store.playStatus = "PLAYING";
+    },
+    pause: () => {
+      store.playStatus = "PAUSED";
+    },
+    playStatus: "STOPPED",
+    position: 0, //milliseconds
+    queueIndex: 0,
     songLibrary: [
       {
         src: "",
@@ -18,12 +54,20 @@ const StoreProvider = ({ children }) => {
         album: "",
         added: "",
         duration: "",
+        albumArt: "",
       },
     ],
-
-    togglePlay: () => {
-      store.isPlaying = !store.isPlaying;
-    },
+    queue: [
+      {
+        src: "",
+        title: "",
+        artist: "",
+        album: "",
+        added: "",
+        duration: "",
+        albumArt: "",
+      },
+    ],
   }));
 
   return (
