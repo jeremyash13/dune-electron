@@ -6,6 +6,7 @@ import { useObserver } from "mobx-react";
 import Sound from "react-sound";
 import StoreContext from "./containers/StoreContext";
 import LeftPane from "./components/LeftPane";
+import Search from "./components/Search";
 const { ipcRenderer } = window.require("electron");
 
 export default function App() {
@@ -20,16 +21,20 @@ export default function App() {
   };
 
   return useObserver(() => (
-    <div className="font-jost text-white bg-dark-blue h-screen flex flex-col p-8 select-none">
-      <div className="flex">
+    <div className="font-jost text-white bg-horizon-black h-screen flex flex-col p-8 select-none" >
+      <div className="flex justify-between main-height">
         <LeftPane />
-        <Library />
+        <div className="flex flex-col">
+          <Search />
+          <Library />
+        </div>
       </div>
       <PlayBar />
       <Sound
         url={store.queue[store.queueIndex].src}
+        volume={store.volume}
         playStatus={store.playStatus}
-        // playFromPosition={store.position}
+        position={store.position}
         onPlaying={(data) => {
           store.setPosition(data.position);
         }}

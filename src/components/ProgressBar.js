@@ -4,17 +4,55 @@ import StoreContext from "../containers/StoreContext";
 
 export default function ProgressBar() {
   const store = React.useContext(StoreContext);
+  let seekPosition = [];
+  for (let i = 0; i < 100; i++) {
+    seekPosition.push(i);
+  }
   return useObserver(() => (
     <div>
-      <div className="w-full h-1 bg-gray-800 rounded">
+      <div id="progress-track" className="w-full h-5px bg-horizon-gray rounded">
         <div
-          className="h-full progress-gradient rounded transition-all duration-1000 ease-linear"
+          id="seek-overlay"
+          className="flex bg-transparent absolute top-0 left-0 h-5px w-full cursor-pointer"
+          onClick={(e) => {
+            const newPosition =
+              (parseFloat(e.target.id) / 100) *
+              store.queue[store.queueIndex].duration;
+            store.setPosition(newPosition);
+          }}
+        >
+          {seekPosition.map((item, index) => (
+            <div
+              key={index}
+              id={index}
+              className="w-1/100 h-full"
+            ></div>
+          ))}
+        </div>
+        <div
+          id="progress-position"
+          className="h-full progress-gradient rounded transition-all duration-200"
           style={{
             width: `${
               (store.position / store.queue[store.queueIndex].duration) * 100
             }%`,
           }}
         ></div>
+      </div>
+
+      <div id="time-wrapper" className="flex justify-between mt-4">
+        <div id="remaining-duration">
+          {new Date(1 * store.position)
+            .toISOString()
+            .substr(11, 8)
+            .replace("00:", "")}
+        </div>
+        <div id="total-duration">
+          {new Date(1 * store.queue[store.queueIndex].duration)
+            .toISOString()
+            .substr(11, 8)
+            .replace("00:", "")}
+        </div>
       </div>
     </div>
   ));

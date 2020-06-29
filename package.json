@@ -1,4 +1,5 @@
 {
+  "productName": "Dune",
   "name": "dune-electron",
   "version": "0.1.0",
   "private": true,
@@ -13,6 +14,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
+    "electron-is-dev": "^1.2.0",
     "react-sound": "^1.2.0"
   },
   "homepage": "./",
@@ -24,7 +26,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build:css": "postcss src/tailwind.css -o src/App.css"
+    "build:css": "postcss src/tailwind.css -o src/App.css",
+    "package": "electron-packager ."
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,7 +48,7 @@
     "autoprefixer": "^9.8.0",
     "electron": "^9.0.3",
     "electron-devtools-installer": "^3.0.0",
-    "electron-is-dev": "^1.2.0",
+    "electron-packager": "^14.2.1",
     "electron-reload": "^1.5.0",
     "postcss": "^7.0.32",
     "postcss-cli": "^7.1.1",

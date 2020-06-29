@@ -22,19 +22,16 @@ const StoreProvider = ({ children }) => {
     setSongLibrary: (newState) => {
       store.songLibrary = [...newState];
     },
-    setCurrentSong: (newState) => {
-      store.currentSong = newState;
-    },
     prevSong: () => {
       if (store.queueIndex !== 0) {
+        store.setPosition(0);
         store.queueIndex--;
-        store.setPosition(0)
       }
     },
     nextSong: () => {
       if (store.queueIndex < store.queue.length - 1) {
+        store.setPosition(0);
         store.queueIndex++;
-        store.setPosition(0)
       }
     },
     play: () => {
@@ -43,16 +40,27 @@ const StoreProvider = ({ children }) => {
     pause: () => {
       store.playStatus = "PAUSED";
     },
+    setSearchValue: (newState) => {
+      store.searchValue = newState;
+    },
+    setVolume: (newState) => {
+      store.volume = newState;
+    },
+    setShuffle: (newState) => {
+      store.shuffle = newState;
+    },
+    searchValue: "",
     playStatus: "STOPPED",
-    position: 0, //milliseconds
+    position: 0, // milliseconds
     queueIndex: 0,
+    volume: 90,
+    shuffle: false,
     songLibrary: [
       {
         src: "",
         title: "",
         artist: "",
         album: "",
-        added: "",
         duration: "",
         albumArt: "",
       },
@@ -63,7 +71,6 @@ const StoreProvider = ({ children }) => {
         title: "",
         artist: "",
         album: "",
-        added: "",
         duration: "",
         albumArt: "",
       },

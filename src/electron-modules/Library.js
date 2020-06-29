@@ -10,9 +10,19 @@ const readTags = async (files) => {
     return new Promise((resolve, reject) => {
       mm.parseFile(x)
         .then((metadata) => {
-          console.log(
-            util.inspect(metadata.native, { showHidden: false, depth: null })
-          );
+          // console.log(
+          //   util.inspect(metadata.common.picture[0].data, {
+          //     showHidden: false,
+          //     depth: null,
+          //   })
+          // );
+          // console.log("break");
+          let albumArt;
+          if (metadata.common.picture) {
+            albumArt = metadata.common.picture[0].data.toString("base64");
+          } else {
+            albumArt = 'no art'
+          }
           resolve({
             // src needs to be transformed from absolute to relative path for react to be able to laod
 
@@ -21,6 +31,7 @@ const readTags = async (files) => {
             artist: metadata.common.artist,
             album: metadata.common.album,
             duration: metadata.format.duration * 1000, // convert S to MS
+            albumArt: albumArt,
           });
         })
         .catch((err) => {

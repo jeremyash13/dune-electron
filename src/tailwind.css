@@ -4,15 +4,25 @@
 
 @tailwind utilities;
 
+.main-height {
+  height: calc(100vh - 13.3rem);
+}
+
 .absolute-center {
   @apply top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
 }
 .fade {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.26));
-  /* opacity: 0.5; */
 }
 body {
-  @apply bg-dark-blue;
+  @apply bg-horizon-black;
+}
+input:focus {
+  outline-width: 0;
+  @apply bg-horizon-gray;
+}
+input::selection {
+  background-color: #c21621;
 }
 .body-wrapper {
   position: absolute;
@@ -20,29 +30,65 @@ body {
   left: 12px;
   bottom: 12px;
   right: 12px;
-  overflow-y: scroll;
+  overflow-y: hidden;
   overflow-x: hidden;
 }
-.body-wrapper::-webkit-scrollbar {
+.custom-scroll::-webkit-scrollbar {
   width: 0.4rem;
-  @apply bg-dark-blue;
+  @apply bg-horizon-black;
 }
-.body-wrapper::-webkit-scrollbar-thumb {
-  @apply bg-gray-700 rounded;
+.custom-scroll::-webkit-scrollbar-thumb {
+  @apply bg-horizon-gray rounded;
+}
+.custom-scroll::-webkit-scrollbar-corner {
+  display: none;
 }
 .waves-active {
   @apply opacity-100;
 }
 .active {
-  @apply bg-gray-800 text-white;
+  @apply text-horizon-red font-normal;
+  /* @apply bg-horizon-gray text-horizon-red; */
+}
+.text-glow-red {
+  text-shadow: 0 0 20px #ff0011;
+  color: #ff373d;
 }
 .table-space {
   border-spacing: 0 10px;
   border-collapse: separate;
 }
-.inner-border:hover {
-  box-shadow: inset 0px 0px 0px 1px white;
-}
 .progress-gradient {
-  background: linear-gradient(to right, #ffffff7a, #ceb49f);
+  background: linear-gradient(to right, #c21621, #ff9ea2);
+  box-shadow: 0 0 20px 1px #ff0011;
+}
+.volume-slider {
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+.volume-slider::-webkit-slider-runnable-track {
+  @apply rounded-full;
+  /* @apply bg-horizon-gray rounded-full; */
+  @apply transition-colors duration-200;
+  border: none;
+}
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  @apply transition-colors duration-200;
+  position: relative;
+  top: -50%;
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+  border: none;
+}
+.volume-slider:focus {
+  @apply bg-transparent;
+}
+.volume-slider:hover::-webkit-slider-runnable-track {
+  /* @apply bg-horizon-red; */
+}
+.volume-slider:hover::-webkit-slider-thumb {
+  /* @apply bg-horizon-red; */
+  background-color: rgb(177, 0, 12);
 }

@@ -6,7 +6,7 @@ const fs = require("fs");
 const path = require("path");
 const url = require("url");
 const { resolve } = require("path");
-const Library = require("./modules/Library");
+const Library = require("./electron-modules/Library");
 const os = require("os");
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -17,8 +17,10 @@ const pathToSystemLibrary = "C:\\Music";
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1920,
-    height: 1080,
+    width: 1200,
+    height: 800,
+    minWidth: 1200,
+    minHeight: 800,
     webPreferences: {
       nodeIntegration: true,
       webSecurity: false,
@@ -40,9 +42,6 @@ function createWindow() {
     // when you should delete the corresponding element.
     mainWindow = null;
   });
-  //   BrowserWindow.addDevToolsExtension(
-  //     path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.7.0_0')
-  //  )
 }
 
 // This method will be called when Electron has finished

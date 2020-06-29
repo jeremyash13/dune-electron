@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
+import NowPlaying from "./NowPlaying";
 
 export default function LeftPane() {
-    return (
-        <div className="w-80">
-            HI MOM
-        </div>
-    )
+  return (
+    <div className="w-48 flex flex-col">
+      <NowPlaying />
+    </div>
+  );
 }

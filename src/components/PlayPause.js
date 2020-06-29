@@ -9,7 +9,7 @@ export default function PlayPause() {
     <>
       {store.playStatus === "PLAYING" && (
         <div
-          className="bg-gray-800 my-auto mx-6 text-2xl w-12 h-12 rounded-full relative cursor-pointer"
+          className="bg-horizon-gray my-auto mx-6 text-2xl w-12 h-12 rounded-full relative cursor-pointer text-gray-700 hover:text-white transition-colors duration-300 ease-in-out"
           onClick={() => {
             store.pause();
           }}
@@ -51,14 +51,14 @@ export default function PlayPause() {
       {(store.playStatus === "STOPPED" ||
         store.playStatus === "PAUSED") && (
           <div
-            className="bg-gray-800 my-auto mx-6 text-2xl w-12 h-12 rounded-full relative cursor-pointer"
+            className="bg-horizon-gray my-auto mx-6 text-2xl w-12 h-12 rounded-full relative cursor-pointer"
             onClick={() => {
               store.play();
             }}
           >
             <div
               id="PLAY"
-              className={`w-8 h-8 absolute top-1/2 left-1/2 transform -translate-x-3 -translate-y-1/2`}
+              className={`w-8 h-8 absolute top-1/2 left-1/2 transform -translate-x-3 -translate-y-1/2 text-gray-700 hover:text-white transition-colors duration-300 ease-in-out`}
             >
               <svg
                 className="h-full mx-auto"
