@@ -25,13 +25,23 @@ const StoreProvider = ({ children }) => {
     prevSong: () => {
       if (store.queueIndex !== 0) {
         store.setPosition(0);
-        store.queueIndex--;
+        store.setQueueIndex(store.queueIndex - 1);
       }
     },
     nextSong: () => {
-      if (store.queueIndex < store.queue.length - 1) {
+      if (store.repeat === 2) {
+        // repeat single song
         store.setPosition(0);
-        store.queueIndex++;
+      } else if (store.queueIndex < store.queue.length - 1) {
+        // increment queue if not on the last song in queue
+        
+        store.setQueueIndex(store.queueIndex + 1);
+        store.setPosition(0);
+      }
+      if (store.repeat === 1 && store.queueIndex === store.queue.length) {
+        // go to beginning of queue
+        store.setPosition(0);
+        store.setQueueIndex(0);
       }
     },
     play: () => {
@@ -49,12 +59,16 @@ const StoreProvider = ({ children }) => {
     setShuffle: (newState) => {
       store.shuffle = newState;
     },
+    setRepeat: (newState) => {
+      store.repeat = newState;
+    },
     searchValue: "",
     playStatus: "STOPPED",
     position: 0, // milliseconds
     queueIndex: 0,
     volume: 90,
     shuffle: false,
+    repeat: 0,
     songLibrary: [
       {
         src: "",

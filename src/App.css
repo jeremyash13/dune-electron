@@ -14839,7 +14839,6 @@ input::selection {
   color: #ff0011;
   color: rgba(255, 0, 17, var(--text-opacity));
   font-weight: 400;
-  /* @apply bg-horizon-gray text-horizon-red; */
 }
 
 .text-glow-red {
@@ -14864,7 +14863,6 @@ input::selection {
 
 .volume-slider::-webkit-slider-runnable-track {
   border-radius: 9999px;
-  /* @apply bg-horizon-gray rounded-full; */
   -webkit-transition-property: background-color, border-color, color, fill, stroke;
   transition-property: background-color, border-color, color, fill, stroke;
   transition-duration: 200ms;
@@ -14888,13 +14886,24 @@ input::selection {
   background-color: transparent;
 }
 
-.volume-slider:hover::-webkit-slider-runnable-track {
-  /* @apply bg-horizon-red; */
-}
-
 .volume-slider:hover::-webkit-slider-thumb {
   /* @apply bg-horizon-red; */
   background-color: rgb(177, 0, 12);
+}
+
+.glow-ring::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: solid 4px rgb(194, 24, 36);
+  box-shadow: 0 0 20px 1px #ff0011, inset 0 0 15px 1px #ff00119f;
+}
+
+.glow-ring:hover::before {
+  transition: box-shadow 200ms linear;
+  box-shadow: 0 0 30px 1px #ff0011, inset 0 0 20px 1px #ff00119f;
 }
 
 @media (min-width: 640px) {
