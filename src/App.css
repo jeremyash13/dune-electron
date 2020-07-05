@@ -8032,6 +8032,10 @@ video {
   padding: 1px;
 }
 
+.p-full {
+  padding: 100%;
+}
+
 .py-0 {
   padding-top: 0;
   padding-bottom: 0;
@@ -8220,6 +8224,16 @@ video {
 .px-px {
   padding-left: 1px;
   padding-right: 1px;
+}
+
+.py-full {
+  padding-top: 100%;
+  padding-bottom: 100%;
+}
+
+.px-full {
+  padding-left: 100%;
+  padding-right: 100%;
 }
 
 .pt-0 {
@@ -8524,6 +8538,22 @@ video {
 
 .pl-px {
   padding-left: 1px;
+}
+
+.pt-full {
+  padding-top: 100%;
+}
+
+.pr-full {
+  padding-right: 100%;
+}
+
+.pb-full {
+  padding-bottom: 100%;
+}
+
+.pl-full {
+  padding-left: 100%;
 }
 
 .placeholder-transparent::placeholder {
@@ -14846,6 +14876,11 @@ input::selection {
   color: #ff373d;
 }
 
+.text-glow-red-2 {
+  text-shadow: 0 0 12px #ff0011;
+  color: #ff373d;
+}
+
 .table-space {
   border-spacing: 0 10px;
   border-collapse: separate;
@@ -14904,6 +14939,27 @@ input::selection {
 .glow-ring:hover::before {
   transition: box-shadow 200ms linear;
   box-shadow: 0 0 30px 1px #ff0011, inset 0 0 20px 1px #ff00119f;
+}
+
+.marquee {
+  padding-left: 100%;
+  white-space: nowrap;
+  animation: marquee 10s linear 0s infinite;
+}
+
+.marquee-2 {
+  white-space: nowrap;
+  animation: marquee 6s linear 3s infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-260%);
+  }
 }
 
 @media (min-width: 640px) {
@@ -22333,6 +22389,10 @@ input::selection {
     padding: 1px;
   }
 
+  .sm\:p-full {
+    padding: 100%;
+  }
+
   .sm\:py-0 {
     padding-top: 0;
     padding-bottom: 0;
@@ -22521,6 +22581,16 @@ input::selection {
   .sm\:px-px {
     padding-left: 1px;
     padding-right: 1px;
+  }
+
+  .sm\:py-full {
+    padding-top: 100%;
+    padding-bottom: 100%;
+  }
+
+  .sm\:px-full {
+    padding-left: 100%;
+    padding-right: 100%;
   }
 
   .sm\:pt-0 {
@@ -22825,6 +22895,22 @@ input::selection {
 
   .sm\:pl-px {
     padding-left: 1px;
+  }
+
+  .sm\:pt-full {
+    padding-top: 100%;
+  }
+
+  .sm\:pr-full {
+    padding-right: 100%;
+  }
+
+  .sm\:pb-full {
+    padding-bottom: 100%;
+  }
+
+  .sm\:pl-full {
+    padding-left: 100%;
   }
 
   .sm\:placeholder-transparent::placeholder {
@@ -36491,6 +36577,10 @@ input::selection {
     padding: 1px;
   }
 
+  .md\:p-full {
+    padding: 100%;
+  }
+
   .md\:py-0 {
     padding-top: 0;
     padding-bottom: 0;
@@ -36679,6 +36769,16 @@ input::selection {
   .md\:px-px {
     padding-left: 1px;
     padding-right: 1px;
+  }
+
+  .md\:py-full {
+    padding-top: 100%;
+    padding-bottom: 100%;
+  }
+
+  .md\:px-full {
+    padding-left: 100%;
+    padding-right: 100%;
   }
 
   .md\:pt-0 {
@@ -36983,6 +37083,22 @@ input::selection {
 
   .md\:pl-px {
     padding-left: 1px;
+  }
+
+  .md\:pt-full {
+    padding-top: 100%;
+  }
+
+  .md\:pr-full {
+    padding-right: 100%;
+  }
+
+  .md\:pb-full {
+    padding-bottom: 100%;
+  }
+
+  .md\:pl-full {
+    padding-left: 100%;
   }
 
   .md\:placeholder-transparent::placeholder {
@@ -50649,6 +50765,10 @@ input::selection {
     padding: 1px;
   }
 
+  .lg\:p-full {
+    padding: 100%;
+  }
+
   .lg\:py-0 {
     padding-top: 0;
     padding-bottom: 0;
@@ -50837,6 +50957,16 @@ input::selection {
   .lg\:px-px {
     padding-left: 1px;
     padding-right: 1px;
+  }
+
+  .lg\:py-full {
+    padding-top: 100%;
+    padding-bottom: 100%;
+  }
+
+  .lg\:px-full {
+    padding-left: 100%;
+    padding-right: 100%;
   }
 
   .lg\:pt-0 {
@@ -51141,6 +51271,22 @@ input::selection {
 
   .lg\:pl-px {
     padding-left: 1px;
+  }
+
+  .lg\:pt-full {
+    padding-top: 100%;
+  }
+
+  .lg\:pr-full {
+    padding-right: 100%;
+  }
+
+  .lg\:pb-full {
+    padding-bottom: 100%;
+  }
+
+  .lg\:pl-full {
+    padding-left: 100%;
   }
 
   .lg\:placeholder-transparent::placeholder {
@@ -64807,6 +64953,10 @@ input::selection {
     padding: 1px;
   }
 
+  .xl\:p-full {
+    padding: 100%;
+  }
+
   .xl\:py-0 {
     padding-top: 0;
     padding-bottom: 0;
@@ -64995,6 +65145,16 @@ input::selection {
   .xl\:px-px {
     padding-left: 1px;
     padding-right: 1px;
+  }
+
+  .xl\:py-full {
+    padding-top: 100%;
+    padding-bottom: 100%;
+  }
+
+  .xl\:px-full {
+    padding-left: 100%;
+    padding-right: 100%;
   }
 
   .xl\:pt-0 {
@@ -65299,6 +65459,22 @@ input::selection {
 
   .xl\:pl-px {
     padding-left: 1px;
+  }
+
+  .xl\:pt-full {
+    padding-top: 100%;
+  }
+
+  .xl\:pr-full {
+    padding-right: 100%;
+  }
+
+  .xl\:pb-full {
+    padding-bottom: 100%;
+  }
+
+  .xl\:pl-full {
+    padding-left: 100%;
   }
 
   .xl\:placeholder-transparent::placeholder {

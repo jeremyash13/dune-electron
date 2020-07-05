@@ -29,19 +29,25 @@ const StoreProvider = ({ children }) => {
       }
     },
     nextSong: () => {
+      // check for shuffle condition
+      if (store.shuffle && store.repeat !== 2) {
+        store.setQueueIndex(Math.floor((Math.random() * (store.queue.length - 1)) + 1))
+        store.setPosition(0)
+      }
+
+      // check for repeat condition
       if (store.repeat === 2) {
         // repeat single song
         store.setPosition(0);
-      } else if (store.queueIndex < store.queue.length - 1) {
-        // increment queue if not on the last song in queue
-        
-        store.setQueueIndex(store.queueIndex + 1);
-        store.setPosition(0);
-      }
-      if (store.repeat === 1 && store.queueIndex === store.queue.length) {
+      } else if (store.repeat === 1 && store.queueIndex === store.queue.length - 1) {
         // go to beginning of queue
         store.setPosition(0);
         store.setQueueIndex(0);
+      } else if (store.queueIndex < store.queue.length - 1) {
+        // increment queue if not on the last song in queue
+
+        store.setQueueIndex(store.queueIndex + 1);
+        store.setPosition(0);
       }
     },
     play: () => {

@@ -5,7 +5,7 @@ export default function SkipBack({ className }) {
   const store = React.useContext(StoreContext);
   return (
     <div
-      className={`${className} w-6 h-6 transform rotate-180 cursor-pointer text-gray-700 hover:text-white transition-colors duration-300 ease-in-out`}
+      className={`${className} w-6 h-6 transform rotate-180 cursor-pointer text-gray-700 hover:text-horizon-red transition-colors duration-300 ease-in-out`}
       onClick={() => {
         store.prevSong()
       }}

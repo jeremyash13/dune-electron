@@ -31,6 +31,9 @@ module.exports = {
       translate: {
         "1": ".15rem",
       },
+      padding: {
+        "full": "100%",
+      },
     },
   },
   variants: {},

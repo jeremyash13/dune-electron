@@ -53,6 +53,10 @@ input::selection {
   text-shadow: 0 0 20px #ff0011;
   color: #ff373d;
 }
+.text-glow-red-2 {
+  text-shadow: 0 0 12px #ff0011;
+  color: #ff373d;
+}
 .table-space {
   border-spacing: 0 10px;
   border-collapse: separate;
@@ -99,4 +103,21 @@ input::selection {
 .glow-ring:hover::before {
   transition: box-shadow 200ms linear;
   box-shadow: 0 0 30px 1px #ff0011, inset 0 0 20px 1px #ff00119f;
+}
+.marquee {
+  padding-left: 100%;
+  white-space: nowrap;
+  animation: marquee 10s linear 0s infinite;
+}
+.marquee-2 {
+  white-space: nowrap;
+  animation: marquee 6s linear 3s infinite;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-260%);
+  }
 }

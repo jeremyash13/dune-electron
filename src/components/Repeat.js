@@ -87,9 +87,9 @@ export default function Repeat() {
             <g
               id="Icons"
               stroke="none"
-              stroke-width="1"
+              strokeWidth="1"
               fill="none"
-              fill-rule="evenodd"
+              fillRule="evenodd"
             >
               <g id="Two-Tone" transform="translate(-851.000000, -952.000000)">
                 <g id="AV" transform="translate(100.000000, 852.000000)">
