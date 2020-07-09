@@ -5,7 +5,7 @@ export default function SongContextMenu() {
   return (
     <>
       {isOpen ? (
-        <div className="absolute text-base flyout border border-gray-700 z-50 transform -translate-x-8 opacity-0 bg-horizon-gray w-40 py-2 px-4 rounded text-right">
+        <div className="absolute text-base flyout border border-gray-700 z-10 transform -translate-x-8 opacity-0 bg-horizon-gray w-40 py-2 px-4 rounded text-right">
           <div className="p-1">+ Playlist</div>
           <div className="p-1">+ Queue</div>
         </div>

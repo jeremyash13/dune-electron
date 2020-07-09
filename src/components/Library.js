@@ -19,8 +19,8 @@ export default function Library() {
       <table className="w-full table-space px-8">
         <tbody>
           <tr>
-            <th className="font-light w-80 flex items-center text-left text-xl pl-6 sticky top-0 bg-horizon-black">
-              <div>Title</div>
+            <th className="font-light w-80 text-left text-xl pl-6 sticky top-0 bg-horizon-black z-20">
+              Title
             </th>
             <th className="font-light w-40 text-left text-xl pl-2 sticky top-0 bg-horizon-black">
               Duration
@@ -28,7 +28,7 @@ export default function Library() {
             <th className="font-light w-56 text-left text-xl pl-2 sticky top-0 bg-horizon-black">
               Artist
             </th>
-            <th className="font-light w-40 text-left text-xl pl-2sticky top-0 bg-horizon-black">
+            <th className="font-light w-40 text-left text-xl pl-2 sticky top-0 bg-horizon-black">
               Album
             </th>
           </tr>

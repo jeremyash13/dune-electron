@@ -1,18 +1,20 @@
-function Queue() {
-  this.items = [];
-  this.enqueue = (i) => {
-    return this.items.push(i);
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+  enqueue = (value) => {
+    return this.items.push(value);
   };
-  this.dequeue = () => {
+  dequeue = () => {
     return this.items.shift();
   };
-  this.peek = () => {
+  peek = () => {
     return this.items[0];
   };
-  this.length = () => {
+  length = () => {
     return this.items.length;
   };
-  this.isEmpty = () => {
+  isEmpty = () => {
     return this.items.length === 0;
   };
 }

@@ -4,8 +4,8 @@ import StoreContext from "../containers/StoreContext";
 export default function Volume() {
   const store = React.useContext(StoreContext);
   return (
-    <div className="flex absolute top-1/2 left-1/2 transform -translate-y-1/2 translate-x-32">
-      <div className="w-6 mr-4 text-gray-800">
+    <div className="flex ">
+      <div className="w-6 mr-4 text-gray-800 my-auto">
         <svg
           version="1.1"
           id="Capa_1"

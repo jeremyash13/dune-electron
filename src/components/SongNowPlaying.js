@@ -17,7 +17,7 @@ export default function SongNowPlaying() {
   return (
     <div className="mt-2 tracking-wider">
       <div className="flex justify-between">
-        {store.queue[store.queueIndex].title.length >= 14 ? (
+        {store.queue[store.queueIndex].title.length >= 13 ? (
           <div className="w-full overflow-x-hidden">
             <Marquee>{store.queue[store.queueIndex].title}</Marquee>
           </div>
