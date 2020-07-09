@@ -10,7 +10,7 @@ export default function PlayPause() {
     {/* PAUSE BUTTON */}
       {store.playStatus === "PLAYING" && (
         <div
-          className="bg-transparent glow-ring my-auto mx-6 text-2xl w-16 h-16 rounded-full relative cursor-pointer text-horizon-red"
+          className="bg-transparent glow-ring-on my-auto mx-6 text-2xl w-16 h-16 rounded-full relative cursor-pointer text-horizon-red"
           onClick={() => {
             store.pause();
           }}
@@ -55,14 +55,14 @@ export default function PlayPause() {
       {(store.playStatus === "STOPPED" ||
         store.playStatus === "PAUSED") && (
           <div
-            className="bg-transparent w-16 h-16 glow-ring my-auto mx-6 text-2xl w-12 h-12 rounded-full relative cursor-pointer"
+            className="bg-transparent glow-ring-off w-16 h-16 my-auto mx-6 text-2xl w-12 h-12 rounded-full relative cursor-pointer"
             onClick={() => {
               store.play();
             }}
           >
             <div
               id="PLAY"
-              className={`w-8 h-8 absolute top-1/2 left-1/2 transform -translate-x-3 -translate-y-1/2 text-red-900`}
+              className={`w-8 h-8 absolute top-1/2 left-1/2 transform -translate-x-3 -translate-y-1/2 text-red-800 hover:text-horizon-red`}
             >
               <svg
                 className="h-full mx-auto"

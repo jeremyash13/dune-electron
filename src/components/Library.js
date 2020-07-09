@@ -2,6 +2,7 @@ import React from "react";
 import { useObserver } from "mobx-react";
 import StoreContext from "../containers/StoreContext";
 import AudioWavesMini from "./AudioWavesMini";
+import SongContextMenu from "./SongContextMenu";
 
 export default function Library() {
   const store = React.useContext(StoreContext);
@@ -14,7 +15,7 @@ export default function Library() {
   };
 
   return useObserver(() => (
-    <div className="w-full overflow-scroll overflow-x-hidden custom-scroll text-gray-600">
+    <div className="w-full font-euclid-reg overflow-scroll overflow-x-hidden custom-scroll text-gray-600">
       <table className="w-full table-space px-8">
         <tbody>
           <tr>
@@ -74,9 +75,10 @@ export default function Library() {
                   }}
                 >
                   <td
-                    className="pl-6 w-80 justify-between items-center rounded-l-md border-l border-b border-t border-transparent"
+                    className="pl-6 w-80 justify-between items-center rounded-l-md border-l border-b border-t border-transparent relative"
                     index={index}
                   >
+                    <SongContextMenu />
                     {song.title}
                     <AudioWavesMini
                       className={`${

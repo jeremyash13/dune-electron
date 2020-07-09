@@ -6220,6 +6220,14 @@ video {
   font-family: Jost;
 }
 
+.font-euclid-reg {
+  font-family: Euclid Triangle Regular;
+}
+
+.font-euclid-semibold {
+  font-family: Euclid Triangle SemiBold;
+}
+
 .font-hairline {
   font-weight: 100;
 }
@@ -14926,7 +14934,16 @@ input::selection {
   background-color: rgb(177, 0, 12);
 }
 
-.glow-ring::before {
+.glow-ring-off::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: solid 4px #242631;
+}
+
+.glow-ring-on::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -14936,7 +14953,7 @@ input::selection {
   box-shadow: 0 0 20px 1px #ff0011, inset 0 0 15px 1px #ff00119f;
 }
 
-.glow-ring:hover::before {
+.glow-ring-on:hover::before {
   transition: box-shadow 200ms linear;
   box-shadow: 0 0 30px 1px #ff0011, inset 0 0 20px 1px #ff00119f;
 }
@@ -14958,8 +14975,48 @@ input::selection {
   }
 
   100% {
-    transform: translateX(-260%);
+    transform: translateX(-360%);
   }
+}
+
+.flyout {
+  left: 0;
+  transform-origin: top left;
+  animation: flyout 300ms ease-out 0s 1 forwards;
+}
+
+@keyframes flyout {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(0.1);
+    opacity: 0.25;
+  }
+
+  75% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@font-face {
+  font-family: "Euclid Triangle Regular";
+
+  src: url("./fonts/EuclidTriangle-Regular.ttf")
+}
+
+@font-face {
+  font-family: "Euclid Triangle SemiBold";
+
+  src: url("./fonts/EuclidTriangle-SemiBold.ttf")
 }
 
 @media (min-width: 640px) {
@@ -20575,6 +20632,14 @@ input::selection {
 
   .sm\:font-jost {
     font-family: Jost;
+  }
+
+  .sm\:font-euclid-reg {
+    font-family: Euclid Triangle Regular;
+  }
+
+  .sm\:font-euclid-semibold {
+    font-family: Euclid Triangle SemiBold;
   }
 
   .sm\:font-hairline {
@@ -34765,6 +34830,14 @@ input::selection {
     font-family: Jost;
   }
 
+  .md\:font-euclid-reg {
+    font-family: Euclid Triangle Regular;
+  }
+
+  .md\:font-euclid-semibold {
+    font-family: Euclid Triangle SemiBold;
+  }
+
   .md\:font-hairline {
     font-weight: 100;
   }
@@ -48953,6 +49026,14 @@ input::selection {
     font-family: Jost;
   }
 
+  .lg\:font-euclid-reg {
+    font-family: Euclid Triangle Regular;
+  }
+
+  .lg\:font-euclid-semibold {
+    font-family: Euclid Triangle SemiBold;
+  }
+
   .lg\:font-hairline {
     font-weight: 100;
   }
@@ -63139,6 +63220,14 @@ input::selection {
 
   .xl\:font-jost {
     font-family: Jost;
+  }
+
+  .xl\:font-euclid-reg {
+    font-family: Euclid Triangle Regular;
+  }
+
+  .xl\:font-euclid-semibold {
+    font-family: Euclid Triangle SemiBold;
   }
 
   .xl\:font-hairline {

@@ -4,6 +4,8 @@ module.exports = {
     extend: {
       fontFamily: {
         jost: "Jost",
+        'euclid-reg': "Euclid Triangle Regular",
+        'euclid-semibold': "Euclid Triangle SemiBold",
       },
       inset: {
         "1/2": "50%",

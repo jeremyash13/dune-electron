@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from "react";
 import StoreContext from "../containers/StoreContext";
 import AudioWavesMini from "./AudioWavesMini";
 import Marquee from "./Marquee";
-// import Ticker from "react-ticker";
 
 export default function SongNowPlaying() {
   const store = React.useContext(StoreContext);
@@ -18,28 +17,13 @@ export default function SongNowPlaying() {
   return (
     <div className="mt-2 tracking-wider">
       <div className="flex justify-between">
-        {/* <div
-          ref={myRef}
-          className={`${
-            shouldScroll ? "scrolling-text-1" : ""
-          } mr-32 text-lg font-normal text-horizon-red text-glow-red whitespace-no-wrap overflow-visible`}
-        >
-          {store.queue[store.queueIndex].title}
-        </div> */}
         {store.queue[store.queueIndex].title.length >= 18 ? (
           <div className="w-full overflow-x-hidden">
             <Marquee>{store.queue[store.queueIndex].title}</Marquee>
-            {/* <Ticker mode="chain">
-              {() => (
-                <div className="whitespace-no-wrap mr-20 text-lg font-normal text-horizon-red text-glow-red-2">
-                  {store.queue[store.queueIndex].title}
-                </div>
-              )}
-            </Ticker> */}
           </div>
         ) : (
           <div
-            className={`mr-32 text-lg font-normal text-horizon-red text-glow-red whitespace-no-wrap overflow-visible`}
+            className={`mr-32 text-2xl font-euclid-semibold text-horizon-red text-glow-red whitespace-no-wrap overflow-visible`}
           >
             {store.queue[store.queueIndex].title}
           </div>
