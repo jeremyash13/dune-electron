@@ -14964,25 +14964,20 @@ input::selection {
   animation: marquee 10s linear 0s infinite;
 }
 
-.marquee-2 {
-  white-space: nowrap;
-  animation: marquee 6s linear 3s infinite;
-}
-
 @keyframes marquee {
   0% {
     transform: translateX(0);
   }
 
   100% {
-    transform: translateX(-360%);
+    transform: translateX(-280%);
   }
 }
 
 .flyout {
   left: 0;
   transform-origin: top left;
-  animation: flyout 300ms ease-out 0s 1 forwards;
+  animation: flyout 100ms ease-out 0s 1 forwards;
 }
 
 @keyframes flyout {
@@ -15010,13 +15005,13 @@ input::selection {
 @font-face {
   font-family: "Euclid Triangle Regular";
 
-  src: url("./fonts/EuclidTriangle-Regular.ttf")
+  src: url("./fonts/EuclidTriangle-Regular.ttf");
 }
 
 @font-face {
   font-family: "Euclid Triangle SemiBold";
 
-  src: url("./fonts/EuclidTriangle-SemiBold.ttf")
+  src: url("./fonts/EuclidTriangle-SemiBold.ttf");
 }
 
 @media (min-width: 640px) {
