@@ -27,8 +27,8 @@ export default function SongContextMenu() {
               fill="currentColor"
             >
               <g>
-                <g >
-                  <circle cx="192" cy="42.667" r="42.667"/>
+                <g>
+                  <circle cx="192" cy="42.667" r="42.667" />
                 </g>
               </g>
               <g>

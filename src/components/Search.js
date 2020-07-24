@@ -6,7 +6,7 @@ export default function Search() {
   const store = React.useContext(StoreContext);
 
   return useObserver(() => (
-    <div className="ml-auto mr-10 mb-6 w-72 relative">
+    <div className="ml-auto mr-10 mb-6 w-72 relative ">
       <input
         type="text"
         placeholder="Search"

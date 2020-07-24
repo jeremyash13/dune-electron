@@ -1,7 +1,7 @@
 import React from "react";
 import StoreContext from "../containers/StoreContext";
 
-export default function AudioWavesMini({ className }) {
+export default function AudioWavesMini({ className, index }) {
   const store = React.useContext(StoreContext);
   const waveStyle = {
     margin: "auto",
@@ -14,12 +14,15 @@ export default function AudioWavesMini({ className }) {
     <>
       {store.playStatus === "PLAYING" && (
         <div
-          className={`w-4 opacity-0 inline-block ml-2 transform translate-y-1 ${className}`}
+          index={index}
+          className={`flex opacity-0 inline-block ml-2 transform translate-y-1 ${className}`}
         >
           <svg
+            index={index}
             style={waveStyle}
             viewBox="0 0 100 100"
             preserveAspectRatio="xMidYMid"
+            className="my-auto w-full"
           >
             <g transform="rotate(180 50 50)">
               <rect x="11" y="12.5" width="18" height="40" fill="currentColor">

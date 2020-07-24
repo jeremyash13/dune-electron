@@ -6,7 +6,7 @@ const fs = require("fs");
 const path = require("path");
 const url = require("url");
 const { resolve } = require("path");
-const Library = require("./electron-modules/Library");
+const Library = require("../src/shared/electron-modules/Library");
 const os = require("os");
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -28,12 +28,21 @@ function createWindow() {
   });
 
   // and load the index.html of the app.
-  mainWindow.loadURL("http://localhost:3000");
+  const startUrl =
+    process.env.ELECTRON_START_URL ||
+    url.format({
+      pathname: path.join(__dirname, "../index.html"),
+      protocol: "file:",
+      slashes: true,
+    });
+  mainWindow.loadURL(startUrl);
 
-  // Open the DevTools.
-  setTimeout(() => {
-    mainWindow.webContents.openDevTools();
-  }, 2000);
+  if (isDev) {
+    // Open the DevTools.
+    setTimeout(() => {
+      mainWindow.webContents.openDevTools();
+    }, 5000);
+  }
 
   // Emitted when the window is closed.
   mainWindow.on("closed", function () {
@@ -50,11 +59,11 @@ function createWindow() {
 
 app.on("ready", async () => {
   // Install React Dev Tools
-  await session.defaultSession.loadExtension(
-    path.join(
-      "C:\\Users\\jerem\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\pfgnfdagidkfgccljigdamigbcnndkod\\0.9.22_0"
-    )
-  );
+  // await session.defaultSession.loadExtension(
+  //   path.join(
+  //     "C:\\Users\\jerem\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\pfgnfdagidkfgccljigdamigbcnndkod\\0.9.22_0"
+  //   )
+  // );
   await session.defaultSession.loadExtension(
     path.join(
       "C:\\Users\\jerem\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\fmkadmapgofadopljbjfkapdkoienihi\\4.7.0_0"

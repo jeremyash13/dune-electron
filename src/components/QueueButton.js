@@ -1,8 +1,10 @@
 import React from "react";
+import StoreContext from "../containers/StoreContext";
+export default function QueueButton() {
+  const store = React.useContext(StoreContext);
 
-export default function Queue() {
   return (
-    <div className="text-gray-700 w-8 cursor-pointer hover:text-horizon-red transition-colors duration-200 ease-in-out">
+    <div className="w-8 cursor-pointer hover:text-horizon-red transition-colors duration-200 ease-in-out" onClick={() => {store.setShowQueue(!store.showQueue)}}>
       <svg viewBox="0 0 48 48" className="w-full h-full">
         <path
           fill="currentColor"

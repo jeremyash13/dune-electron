@@ -19,6 +19,7 @@ body {
 }
 input:focus {
   outline-width: 0;
+  box-shadow: 0 0 15px -3px #ff0011;
   @apply bg-horizon-gray;
 }
 input::selection {
@@ -33,9 +34,29 @@ input::selection {
   overflow-y: hidden;
   overflow-x: hidden;
 }
+#queue-window {
+  box-shadow: 0 0 20px black;
+  scroll-snap-type: block mandatory;
+  scroll-behavior: smooth;
+}
+#queue-window #queue-entry {
+  scroll-snap-align: start;
+}
+img {
+  max-width: unset;
+}
+.cropped {
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+}
+.cropped img {
+  width: 88px;
+  margin-left: -19px;
+}
 .custom-scroll::-webkit-scrollbar {
-  width: 0.4rem;
-  @apply bg-horizon-black;
+  width: 0.7rem;
+  @apply bg-horizon-black rounded;
 }
 .custom-scroll::-webkit-scrollbar-thumb {
   @apply bg-horizon-gray rounded;
@@ -91,6 +112,9 @@ input::selection {
   /* @apply bg-horizon-red; */
   background-color: rgb(177, 0, 12);
 }
+.filter-glow-red {
+  filter: drop-shadow(0 0 5px #ff0011);
+}
 .glow-ring-off::before {
   content: "";
   position: absolute;
@@ -125,7 +149,6 @@ input::selection {
     transform: translateX(-280%);
   }
 }
-
 .flyout {
   left: 0;
   transform-origin: top left;
@@ -149,6 +172,31 @@ input::selection {
     opacity: 1;
   }
 }
+.slide-enter {
+  transform: translateY(120%);
+}
+.slide-enter-active {
+  transform: translateY(0);
+  transition: transform 350ms ease-in-out;
+}
+.slide-enter-done {
+  transform: translateY(0);
+}
+.slide-exit {
+  transform: translateY(0);
+}
+.slide-exit-active {
+  transform: translateY(120%);
+  transition: transform 350ms ease-in-out;
+}
+.slide-exit-done {
+  transform: translateY(120%);
+}
+
+.bg-blur {
+  backdrop-filter: blur(6px);
+}
+
 @font-face {
   font-family: "Euclid Triangle Regular";
   src: url("./fonts/EuclidTriangle-Regular.ttf");

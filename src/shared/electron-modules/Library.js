@@ -84,8 +84,9 @@ class Library {
   constructor(srcPath) {
     this.srcPath = srcPath; // path to music library on PC, will be copied to a local folder to allow React to access
     if (isDev) {
-      this.localPath = path.join(__dirname, "/../../", "public", "library");
+      this.localPath = path.join(__dirname, "/../../../", "public", "library");
     } else {
+      fs.mkdirSync(path.join(__dirname, "library"))
       this.localPath = path.join(__dirname, "library"); // output library folder that is accessible by React, will re-write to use PC's library instead of making duplicate library if i can get the god-forsaken NODE-GYP to work.
     }
     checkForUpdates(this.srcPath, this.localPath);

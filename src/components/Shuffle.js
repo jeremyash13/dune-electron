@@ -12,6 +12,15 @@ export default function Shuffle() {
       } w-6 cursor-pointer`}
       onClick={() => {
         store.setShuffle(!store.shuffle);
+        if (store.shuffle) {
+          // shuffle the queue
+          store.shuffleQueue();
+        }
+        if (!store.shuffle) {
+          //un-shuffle queue, remove first item (currently playing song)
+          store.setQueue(store.songLibrary);
+          store.queue.dequeue();
+        }
       }}
     >
       <svg

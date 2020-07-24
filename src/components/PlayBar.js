@@ -4,18 +4,17 @@ import SkipBack from "./SkipBack";
 import SkipForward from "./SkipForward";
 import ProgressBar from "./ProgressBar";
 import Volume from "./Volume";
-import QueueModifierControls from "./QueueModifierControls";
-import Queue from "./Queue";
+import QueueButton from "./QueueButton";
 import Shuffle from "./Shuffle";
 import Repeat from "./Repeat";
 
 export default function PlayBar() {
   return (
     <>
-      <div className="fixed mx-auto absolute bottom-0 w-95/100 h-32">
+      <div className="fixed mx-auto absolute bottom-0 w-full h-32 bg-horizon-black z-30">
         <ProgressBar />
         <div id="controls" className="flex justify-center w-full">
-          <div className="flex text-gray-800 my-auto ml-10">
+          <div className="flex text-gray-800 my-auto">
             <Shuffle />
             <Repeat />
           </div>
@@ -24,8 +23,8 @@ export default function PlayBar() {
             <PlayPause />
             <SkipForward className="my-auto" />
           </div>
-          <div className="flex space-x-4">
-            <Queue />
+          <div className="flex text-gray-800 space-x-4 mr-6">
+            <QueueButton />
             <Volume />
           </div>
         </div>

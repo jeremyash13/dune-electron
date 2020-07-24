@@ -9,8 +9,12 @@ export default function Library() {
 
   const playSong = (e) => {
     store.setPosition(0);
-    const index = e.target.getAttribute("index");
-    store.setQueueIndex(parseInt(index));
+    const index = parseInt(e.target.getAttribute("index"));
+
+    const newQueue = store.songLibrary.slice(index);
+    store.setQueue(newQueue);
+    store.setNowPlaying(store.queue.dequeue());
+
     store.play();
   };
 
@@ -63,26 +67,33 @@ export default function Library() {
             ) {
               return (
                 <tr
-                  key={song.title + song.artist + song.added}
-                  className={`${
-                    store.queue[store.queueIndex].title.includes(song.title)
-                      ? "active"
-                      : ""
-                  } rounded-md font-normal text-md cursor-pointer border border-transparent transition-colors duration-500 ease-out hover:text-horizon-red`}
+                  key={song.title + song.artist}
+                  // className={`${
+                  //   store.nowPlaying.title === song.title
+                  //     ? "active"
+                  //     : ""
+                  // }
+                  className={`rounded-md font-normal text-md cursor-pointer border border-transparent transition-colors duration-500 ease-out hover:text-horizon-red`}
                   index={index}
                   onClick={(e) => {
                     playSong(e);
                   }}
                 >
                   <td
-                    className="pl-6 w-80 justify-between items-center rounded-l-md border-l border-b border-t border-transparent relative"
+                    className="pl-6 w-80 flex rounded-l-md border-l border-b border-t border-transparent relative"
                     index={index}
                   >
                     <SongContextMenu />
-                    {song.title}
+                    <div
+                      className="whitespace-no-wrap truncate w-48"
+                      index={index}
+                    >
+                      {song.title}
+                    </div>
                     <AudioWavesMini
-                      className={`${
-                        store.queue[store.queueIndex].title.includes(song.title)
+                      index={index}
+                      className={`w-4 ${
+                        store.nowPlaying.title === song.title
                           ? "waves-active"
                           : ""
                       }`}
@@ -96,10 +107,14 @@ export default function Library() {
                         .replace("00:", "")}
                   </td>
                   <td className="p-2 w-56" index={index}>
-                    {song.artist}
+                    <div className="whitespace-no-wrap truncate w-48">
+                      {song.artist}
+                    </div>
                   </td>
                   <td className="p-2 rounded-r-md w-40" index={index}>
-                    {song.album}
+                    <div className="whitespace-no-wrap truncate w-40">
+                      {song.album}
+                    </div>
                   </td>
                 </tr>
               );

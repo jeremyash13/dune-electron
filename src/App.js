@@ -7,6 +7,7 @@ import Sound from "react-sound";
 import StoreContext from "./containers/StoreContext";
 import LeftPane from "./components/LeftPane";
 import Search from "./components/Search";
+import QueueWindow from "./components/QueueWindow";
 const { ipcRenderer } = window.require("electron");
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
   useEffect(() => {
     store.setSongLibrary([...ipcRenderer.sendSync("initLibrary", "ping")]);
     store.setQueue(store.songLibrary);
+    store.setNowPlaying(store.queue.dequeue());
   }, []);
 
   const songEndHandler = () => {
@@ -21,17 +23,18 @@ export default function App() {
   };
 
   return useObserver(() => (
-    <div className="font-jost text-white bg-horizon-black h-screen flex flex-col p-8 select-none" >
+    <div className="font-jost text-white bg-horizon-black h-screen flex flex-col p-8 select-none">
       <div className="flex justify-between main-height">
         <LeftPane />
         <div className="flex flex-col">
           <Search />
           <Library />
+          <QueueWindow />
         </div>
       </div>
       <PlayBar />
       <Sound
-        url={store.queue[store.queueIndex].src}
+        url={store.nowPlaying.src}
         volume={store.volume}
         playStatus={store.playStatus}
         position={store.position}
